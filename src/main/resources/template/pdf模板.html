@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>pdf freemarker模板文件</title>
+		<style>
+			.column {
+				width: 1002px;
+				line-height: 28px;
+				border: 1px solid #dedede
+			}
+			
+			.box {
+				width: 100%;
+				word-wrap: break-word;
+				color: #ffffff;
+				background-color: #3f4160
+			}
+			
+			.box1 {
+				width: 100%;
+				background-color: #f8f9fa
+			}
+			
+			.plate {
+				width: 430px;
+				height: 54px;
+				font-size: 16px;
+				font-weight: bold;
+				color: #818ba3
+			}
+			
+			.title {
+				font-size: 30px;
+				padding-bottom: 15px;
+				padding-top: 15px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body style="font-family: SimSun;">
+
+		<table cellspacing="0" cellpadding="0" border="0" class="box">
+			<tbody>
+				<tr>
+					<td class="title">pdf报表</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table cellspacing="0" cellpadding="0" border="0" class="box1">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>年龄</th>
+					<th>简介</th>
+				</tr>
+			</thead>
+			<tbody>
+				<#list dataList as dataEntity>
+					<tr>
+						<td>${dataEntity.name !''}</td>
+						<td>${dataEntity.sex !''}</td>
+						<td>${dataEntity.age !''}</td>
+						<td>${dataEntity.describe !''}</td>
+					</tr>
+				</#list>
+				
+				<tr><td><img src="portrait.png" /></td></tr>
+			</tbody>
+		</table>
+
+		<hr />
+
+		<table>
+			<tbody>
+				<tr>
+					<td align="right" style="width: 900px;"><strong>生成时间：</strong></td>
+					<td align="right">${currentTime !''} </td>
+				</tr>
+				<tr>
+					<td align="right" style="width: 950px;"><strong>单位：</strong></td>
+					<td align="right">${department !''}</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+
+</html>
